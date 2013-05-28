@@ -17,7 +17,7 @@ alias ah='(echo;alias | grep  "g[0-9]" | grep -v "m[0-9]" | cut -d" " -f "2,3"| 
 # Aliases
 # 
 alias vi="vim"
-alias ll="ls -al --group-directories-first"
+alias ll="ls -al --group-directories-first --block-size=M"
 alias df="df -kTh"
 alias du="du -kh"
 alias ..="cd ..;"
