@@ -4,6 +4,21 @@
 # SAFETY NOTE : installation is done in the CURRENT directory
 # COMPATIBILITY NOTE: commands are running in the CURRENT shell
 
+USER=$1
+BRANCH=$2
+
+if [ -z "$USER" ]
+then
+	USER=mamchenkov
+fi
+
+if [ -z "$BRANCH" ]
+then
+	BRANCH=master
+fi
+
+echo $USER $BRANCH
+
 #
 # Get dotfiles, if they aren't already here
 # 
@@ -16,7 +31,7 @@ fi
 if [ ! -d "dotfiles" ]
 then
 	echo "Getting dotfiles via ssh protocol"
-	git clone git@github.com:mamchenkov/dotfiles.git dotfiles
+	git clone git@github.com:davidlegit/dotfiles.git dotfiles
 fi
 
 if [ ! -d "dotfiles" ]
@@ -38,6 +53,7 @@ fi
 # Get all the submodules
 # 
 cd dotfiles
+git checkout $BRANCH
 git pull
 git submodule init
 git submodule update
